@@ -1,16 +1,16 @@
 /*
 Jake Cohen
 ASU Thesis
-Pure-ENG Programming Language
+Engram Programming Language
 */
+
+#include "compiler.h"
 
 #include <iostream>
 #include <istream>
-#include <vector>
-#include <string>
 #include <cctype>
 #include <cstring>
-#include "compiler.h"
+#include <vector>
 
 using namespace std;
 

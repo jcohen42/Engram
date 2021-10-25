@@ -1,10 +1,9 @@
 /*
 Jake Cohen
 ASU Thesis
-Pure-ENG Programming Language
+Engram Programming Language
 */
 
-#include <vector>
 #include <string>
 
 using namespace std;

@@ -1,10 +1,9 @@
 /*
 Jake Cohen
 ASU Thesis
-Pure-ENG Programming Language
+Engram Programming Language
 */
 
-#include <iostream>
 #include <vector>
 #include <string>
 #include <unordered_map>
