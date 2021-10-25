@@ -1,0 +1,12 @@
+Begin program:
+	Set x equal to 0.
+	While x is less than 10:
+		Set y equal to x modulo 2.
+		If y is equal to 0:
+			Output "Even".
+		Else:
+			Output "Odd".
+		End if.
+		Set x equal to x plus 1.
+	End while.
+End program.

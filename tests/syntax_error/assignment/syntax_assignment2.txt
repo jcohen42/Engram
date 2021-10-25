@@ -1,0 +1,6 @@
+Begin Program:
+	Set x equal to 6.
+	Set y equal to 7.
+	Set z equal to y minus x.
+	Output z.
+End program.

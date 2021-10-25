@@ -1,0 +1,16 @@
+Begin Func1 with argument var1:
+	Set out1 equal to var1 plus 6.
+	Return out1.
+End Func1
+
+Begin Func2 with argument var2:
+	Set out2 equal to var2 times 2.
+	Return out2.
+End Func2.
+
+Begin program:
+	Set value1 equal to 4.
+	Call Func1 with argument value1; set return to value2.
+	Call Func2 with argument value2; set return to value3.
+	Output value3.
+End program.

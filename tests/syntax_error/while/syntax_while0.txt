@@ -1,0 +1,7 @@
+Begin program:
+	Set x equal to 0.
+	While x is less than 10
+		Output x.
+		Set x equal to x plus 1.
+	End while.
+End program.

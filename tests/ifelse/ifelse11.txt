@@ -1,0 +1,15 @@
+Begin program:
+	Set x equal to 100.
+	Set y equal to 5.
+	If x is not equal to y:
+		Output "Not equal".
+		If x is less than y:
+			Output "x less than y".
+			If y is greater than x:
+				Output "y greater than x".
+			End if.
+		Else:
+			Output "x greater than y".
+		End if.
+	End if.
+End program.

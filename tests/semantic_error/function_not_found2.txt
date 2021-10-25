@@ -1,0 +1,5 @@
+Begin program:
+	Output "Hello".
+	Set x equal to 343.
+	Call Func with argument x, set return to y.
+End program.

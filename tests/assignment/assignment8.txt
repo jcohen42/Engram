@@ -1,0 +1,7 @@
+Begin program:
+	Set x equal to 100.
+	Set x equal to x plus 24.
+	Output x.
+	Set x equal to x divided by 2.
+	Output x.
+End program.

@@ -1,0 +1,9 @@
+Begin Function with argument x:
+	Set var1 equal to 6.
+	Set var2 equal to var1.
+	Set var3 equal to var2.
+	Set var4 equal to var3.
+	Output var4.
+	Set var1 equal to 1024.
+	Output var4.
+End Function.

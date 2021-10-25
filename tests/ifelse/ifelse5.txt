@@ -1,0 +1,6 @@
+Begin program:
+	Set x equal to 76.
+	If x is equal to x:
+		Output "Equal".
+	End if.
+End program.
