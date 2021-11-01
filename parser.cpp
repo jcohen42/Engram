@@ -76,11 +76,9 @@ struct Parser::if_block {
 
 struct Parser::function {
     string name;
-    string argument;
     struct InstructionNode* head;
     bool hasReturn;
-    int mem[1024];
-    unordered_map<string, int> symbolTable;
+    string returnVariable;
 };
 
 struct findFunctionName : unary_function<Parser::function, bool> {
@@ -164,24 +162,30 @@ struct Parser::function* Parser::parse_function() {
     expect(WITH);
     expect(ARGUMENT);
 
+    struct InstructionNode* param = new InstructionNode;
+    param->type = PARAM;
+    fun->head = param;
+
     //Get the function argument and assign it to memory
     Token argument = expect(ID);
     //TEMPORARY: add the function arguemnt to the symbol table
     if(location(argument.lexeme) == -1) {
 		//If the variable is not found, add it to mem and to the symbol table
 		symbolTable[argument.lexeme] = nextAvailable;
-		//Assign memory for the constant
 		mem[nextAvailable] = 0;
 		nextAvailable++;
 	}
-    fun->argument = argument.lexeme;
+    param->param_inst.parameterIndex = location(argument.lexeme);
     expect(COLON);
 
     //Parse the body of the function
-    fun->head = parse_statement_list();
+    param->next = fun->head->next;
+    fun->head->next = parse_statement_list();
+
+    //Check if this function returns a value
     if(lexer.peek(1).type == RETURN_UPPER) {
         fun->hasReturn = true;
-        parse_return_section();
+        fun->returnVariable = parse_return_section();
     }
     expect(END);
     Token id2 = expect(ID);
@@ -193,10 +197,13 @@ struct Parser::function* Parser::parse_function() {
     return fun;
 }
 
-void Parser::parse_return_section() {
+string Parser::parse_return_section() {
+    //Get the name of the return variable
     expect(RETURN_UPPER);
-    parse_variable();
+    string var = parse_variable().lexeme;
     expect(PERIOD);
+
+    return var;
 }
 
 Token Parser::parse_variable() {
@@ -246,14 +253,17 @@ struct InstructionNode* Parser::parse_statement_list() {
     if(t.type == IF_UPPER || t.type == WHILE_UPPER || t.type == SET_UPPER
             || t.type == INPUT || t.type == OUTPUT || t.type == CALL) {
         stmt2 = parse_statement_list();
-
+        if(DEBUG) { cout << "DEBUG: appending\n"; }
         //Iterate through to the end of stmt1
         struct InstructionNode* tracker = stmt;
         while(tracker->next != NULL) {
+            if(DEBUG) { cout << "DEBUG: appending3\n"; }
             tracker = tracker->next;
         }
+        if(DEBUG) { cout << "DEBUG: appending4\n"; }
         //Append stmt2 to the end of stmt
         tracker->next = stmt2;
+        if(DEBUG) { cout << "DEBUG: appending5\n"; }
     }
 
     return stmt;
@@ -562,7 +572,6 @@ struct InstructionNode* Parser::parse_output_statement() {
 
 struct InstructionNode* Parser::parse_function_statement() {
     struct InstructionNode* stmt = new InstructionNode;
-    stmt->type = JMP;
 
     Token t = lexer.peek(6);
     if(t.type == PERIOD) {
@@ -577,42 +586,75 @@ struct InstructionNode* Parser::parse_function_statement() {
 }
 
 struct InstructionNode* Parser::parse_function_statement_simple() {
+    if(DEBUG) { cout << "DEBUG: parsing simple function call\n"; }
+    struct InstructionNode* stmt = new InstructionNode;
+    stmt->type = FUNC;
+
     expect(CALL);
     Token funcName = expect(ID);
-    //See if the function the user is trying to call actually exists
+    //See if the function actually exists
     bool hasFuncBeenFound = false;
+    struct function* func;
     for(function* f : functionList) {
         if((f->name).compare(funcName.lexeme) == 0) {
+            func = f;
             hasFuncBeenFound = true;
             break;
         }
     }
-    //If it doesn't display an error
+    //If it doesn't, display an error
     if(!hasFuncBeenFound) { functionNotFound(funcName); }
+
+    //Parse the argument that will be passed into the function
     expect(WITH);
     expect(ARGUMENT);
-    expect(ID);
+    Token argument = expect(ID);
+    // func->head->param_inst.callerIndex = location(argument.lexeme); // this makes function re-calls broken
+    stmt->func_inst.callerIndex = location(argument.lexeme);
     expect(PERIOD);
 
-    return NULL;
+    //Set the instruction node to the beginning of the function
+    stmt->func_inst.funcHead = func->head;
+
+    //We need a node to go to after the function completes
+    //So we'll set the function call's next node as a NOOP
+    struct InstructionNode* stmt2 = new InstructionNode;
+    stmt2->type = NOOP;
+    stmt2->next = NULL;
+    // stmt->func_inst.returnNode = stmt2;
+    stmt->next = stmt2;
+
+    return stmt;
 }
 
 struct InstructionNode* Parser::parse_function_statement_return() {
+    if(DEBUG) { cout << "DEBUG: parsing function call with return\n"; }
+    struct InstructionNode* stmt = new InstructionNode;
+    stmt->type = FUNC;
+
     expect(CALL);
     Token funcName = expect(ID);
-    //See if the function the user is trying to call actually exists
+    //See if the function the actually exists
     bool hasFuncBeenFound = false;
+    struct function* func;
     for(function* f : functionList) {
         if((f->name).compare(funcName.lexeme) == 0) {
+            func = f;
             hasFuncBeenFound = true;
             break;
         }
     }
-    //If it doesn't display an error
+    //If it doesn't, display an error
     if(!hasFuncBeenFound) { functionNotFound(funcName); }
     expect(WITH);
     expect(ARGUMENT);
-    expect(ID);
+    Token argument = expect(ID);
+    // func->head->param_inst.callerIndex = location(argument.lexeme);
+    stmt->func_inst.callerIndex = location(argument.lexeme);
+
+    //Set the instruction node to the beginning of the function
+    stmt->func_inst.funcHead = func->head;
+
     expect(COMMA);
     expect(SET_LOWER);
     expect(RETURN_LOWER);
@@ -628,7 +670,18 @@ struct InstructionNode* Parser::parse_function_statement_return() {
 		nextAvailable++;
     }
 
-    return NULL;
+    //Create an assignment node to set the return value
+    struct InstructionNode* stmt2 = new InstructionNode;
+    stmt2->type = ASSIGN;
+    stmt2->next = NULL;
+
+    stmt2->assign_inst.leftHandSideIndex = location(returnVar.lexeme);
+    stmt2->assign_inst.operand1Index = location(func->returnVariable);
+    stmt2->assign_inst.op = OPERATOR_NONE;
+    // stmt->func_inst.returnNode = stmt2;
+    stmt->next = stmt2;
+
+    return stmt;
 }
 
 void Parser::consumeAllInput() {

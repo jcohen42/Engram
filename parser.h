@@ -30,7 +30,7 @@ class Parser {
         struct InstructionNode* parse_start();
         void parse_function_section();
         struct function* parse_function();
-        void parse_return_section();
+        string parse_return_section();
         Token parse_variable();
         struct InstructionNode* parse_program_section();
         struct InstructionNode* parse_statement_list();

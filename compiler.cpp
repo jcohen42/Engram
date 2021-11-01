@@ -16,7 +16,9 @@ using namespace std;
 
 int mem[1024];
 int nextAvailable = 0;
+int memIndex;
 string fileName;
+bool previousOutput = false;
 
 //Check if a given string is a number
 bool isNumber(string str) {
@@ -54,8 +56,8 @@ void inputNotInteger() {
 }
 
 void executeProgram(struct InstructionNode* program) {
-    bool previousOutput = false;
     struct InstructionNode* pc = program; //pc is the program counter
+    // struct InstructionNode* returnNode;
     int op1, op2, result;
     string userInput;
     //Iterate through the program one node at a time
@@ -184,6 +186,15 @@ void executeProgram(struct InstructionNode* program) {
                     exit(1);
                 }
                 pc = pc->jmp_inst.target;
+                break;
+            case PARAM: //For the parameter of a function
+                mem[pc->param_inst.parameterIndex] = mem[memIndex];
+                pc = pc->next;
+                break;
+            case FUNC: //For a function call
+                memIndex = pc->func_inst.callerIndex;
+                executeProgram(pc->func_inst.funcHead);
+                pc = pc->next;
                 break;
             default:
                 printf("Error: Invalid program counter type. Exiting.\n");

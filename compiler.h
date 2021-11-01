@@ -35,7 +35,9 @@ typedef enum {
     OUT,
     ASSIGN,
     CJMP,
-    JMP
+    JMP,
+    PARAM,
+    FUNC
 } InstructionType;
 
 struct InstructionNode {
@@ -73,6 +75,17 @@ struct InstructionNode {
         struct {
             struct InstructionNode* target;
         } jmp_inst;
+
+        struct {
+            int parameterIndex;
+            // int callerIndex;
+        } param_inst;
+
+        struct {
+            int callerIndex;
+            struct InstructionNode* funcHead;
+            struct InstructionNode* returnNode;
+        } func_inst;
     };
 
     struct InstructionNode* next;
