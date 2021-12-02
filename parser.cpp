@@ -20,8 +20,7 @@ using namespace std;
 
 extern int mem[1024];
 extern int nextAvailable;
-
-#define DEBUG 0
+extern int DEBUG;
 
 //Check to make sure the next token's type is as expected
 //Return the token if it is
@@ -126,10 +125,23 @@ void Parser::functionNotFound(Token id) {
 PARSING FUNCTIONS
 */
 struct InstructionNode* Parser::parse_start() {
+    //Check for any number of comments
+    while(lexer.peek(1).type == COMMENT) {
+        lexer.get();
+    }
+
+    //Parse function section
     struct InstructionNode* program;
     if(lexer.peek(1).type == BEGIN && lexer.peek(2).type == ID) {
         parse_function_section();
     }
+
+    //Check for any number of comments
+    while(lexer.peek(1).type == COMMENT) {
+        lexer.get();
+    }
+
+    //Parse program section
     program = parse_program_section();
     expect(END_OF_FILE);
     if(DEBUG) { cout << "DEBUG: done parsing" << endl; }
@@ -137,7 +149,13 @@ struct InstructionNode* Parser::parse_start() {
 }
 
 void Parser::parse_function_section() {
-    struct function* fun = parse_function();
+    //Parse the function
+    parse_function();
+
+    //Check for any number of comments
+    while(lexer.peek(1).type == COMMENT) {
+        lexer.get();
+    }
 
     //Check if there is another function definition
     //If so, call this function recursively
@@ -232,6 +250,9 @@ Token Parser::parse_variable() {
 }
 
 struct InstructionNode* Parser::parse_program_section() {
+    //Check for any number of comments
+
+    //Parse the program section
     expect(BEGIN);
     expect(PROGRAM);
     expect(COLON);
@@ -251,19 +272,17 @@ struct InstructionNode* Parser::parse_statement_list() {
     //If so, call this function recursively
     Token t = lexer.peek(1);
     if(t.type == IF_UPPER || t.type == WHILE_UPPER || t.type == SET_UPPER
-            || t.type == INPUT || t.type == OUTPUT || t.type == CALL) {
+            || t.type == INPUT || t.type == OUTPUT || t.type == CALL || t.type == COMMENT) {
         stmt2 = parse_statement_list();
-        if(DEBUG) { cout << "DEBUG: appending\n"; }
+        
         //Iterate through to the end of stmt1
         struct InstructionNode* tracker = stmt;
         while(tracker->next != NULL) {
-            if(DEBUG) { cout << "DEBUG: appending3\n"; }
             tracker = tracker->next;
         }
-        if(DEBUG) { cout << "DEBUG: appending4\n"; }
+        
         //Append stmt2 to the end of stmt
         tracker->next = stmt2;
-        if(DEBUG) { cout << "DEBUG: appending5\n"; }
     }
 
     return stmt;
@@ -286,6 +305,11 @@ struct InstructionNode* Parser::parse_statement() {
         stmt = parse_output_statement();
     } else if(t.type == CALL) {
         stmt = parse_function_statement();
+    } else if(t.type == COMMENT) {
+        //If there is a comment, create a noop node
+        expect(COMMENT);
+        stmt->type = NOOP;
+        stmt->next = NULL;
     } else {
         syntaxError(t);
     }
@@ -609,7 +633,7 @@ struct InstructionNode* Parser::parse_function_statement_simple() {
     //Parse the argument that will be passed into the function
     expect(WITH);
     expect(ARGUMENT);
-    Token argument = expect(ID);
+    Token argument = parse_variable();
     stmt->func_inst.callerIndex = location(argument.lexeme);
     expect(PERIOD);
 
@@ -649,7 +673,7 @@ struct InstructionNode* Parser::parse_function_statement_return() {
 
     expect(WITH);
     expect(ARGUMENT);
-    Token argument = expect(ID);
+    Token argument = parse_variable();
     stmt->func_inst.callerIndex = location(argument.lexeme);
 
     //Set the instruction node to the beginning of the function

@@ -18,6 +18,10 @@ extern string fileName;
 void InputBuffer::initBuffer() {
     const char* f = fileName.c_str();
     file = fopen(f, "r");
+    if(!file) {
+        cout << "Error: the specified file was not found. Exiting.\n";
+        exit(1);
+    }
 }
 
 //consume a character from the input stram and return it
@@ -39,7 +43,7 @@ void InputBuffer::getChar(char& c) {
 char InputBuffer::ungetChar(char c) {
     if(c != EOF) {
         inputBuffer.push_back(c);
-        eof = false; //Maybe will break stuff????????????????
+        eof = false;
     }
     return c;
 }

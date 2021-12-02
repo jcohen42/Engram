@@ -23,7 +23,7 @@ string reserved[] = {"END_OF_FILE",
     "PLUS", "MINUS", "TIMES", "DIVIDED", "BY", "MODULO", 
     "INPUT", "OUTPUT", "CALL", "SET_UPPER", "SET_LOWER", 
     "PERIOD", "COMMA", "COLON",
-    "NUM", "ID", "STRING", "ERROR"};
+    "NUM", "ID", "STRING", "COMMENT", "ERROR"};
 
 //print the token, its type, and the line number
 void Token::print() {
@@ -119,6 +119,47 @@ Token LexicalAnalyzer::scanString() {
         //Set the token
         temp.lineNum = lineNum;
         temp.type = STRING;
+    } else {
+        //If c is not a quote, unget the character
+        if(!input.endOfInput()) {
+            input.ungetChar(c);
+        }
+        //Produce an ERROR token
+        temp.type = ERROR;
+        temp.lineNum = lineNum;
+    }
+    return temp;
+}
+
+//If a left parenthesis is found, scan until a right parenthesis is found
+//The token type will be COMMENT
+Token LexicalAnalyzer::scanComment() {
+    char c;
+    input.getChar(c);
+
+    if(c == '(') {
+        temp.lexeme = "(";
+        input.getChar(c);
+        while(!input.endOfInput() && c != ')') {
+            temp.lexeme += c;
+            input.getChar(c);
+        }
+        //Get the final double quote
+        if(c == ')') {
+            temp.lexeme += c;
+            input.getChar(c);
+        } else {
+            //If there is no final double quote, produce an ERROR token
+            temp.type = ERROR;
+            temp.lineNum = lineNum;
+            return temp;
+        }
+        if(!input.endOfInput()) {
+            input.ungetChar(c);
+        }
+        //Set the token
+        temp.lineNum = lineNum;
+        temp.type = COMMENT;
     } else {
         //If c is not a quote, unget the character
         if(!input.endOfInput()) {
@@ -262,6 +303,10 @@ Token LexicalAnalyzer::getTokenMain() {
                 //If the character is a double quote, scan for a string
                 input.ungetChar(c);
                 return scanString();
+            } else if(c == '(') {
+                //If the character is a left parenthesis, scan for a comment
+                input.ungetChar(c);
+                return scanComment();
             } else if(isdigit(c) || c == '-') {
                 //If the character is a digit, scan the whole number
                 input.ungetChar(c);

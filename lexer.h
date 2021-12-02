@@ -17,7 +17,7 @@ typedef enum { END_OF_FILE = 0,
     PLUS, MINUS, TIMES, DIVIDED, BY, MODULO, 
     INPUT, OUTPUT, CALL, SET_UPPER, SET_LOWER, 
     PERIOD, COMMA, COLON, 
-    NUM, ID, STRING, ERROR
+    NUM, ID, STRING, COMMENT, ERROR
 } TokenType;
 
 class Token {
@@ -47,4 +47,5 @@ class LexicalAnalyzer {
         Token scanKeyword();
         Token scanNum();
         Token scanString();
+        Token scanComment();
 };

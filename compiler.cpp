@@ -18,7 +18,9 @@ int mem[1024];
 int nextAvailable = 0;
 int memIndex;
 string fileName;
+int DEBUG = 0;
 bool previousOutput = false;
+bool showInputFlag = false;
 
 //Check if a given string is a number
 bool isNumber(string str) {
@@ -34,12 +36,12 @@ bool isNumber(string str) {
 
 //ERROR FUNCTIONS
 void divideBy0() {
-    cout << "Error: Divide by 0.";
+    cout << "Error: Divide by 0. Exiting program.";
     exit(1);
 }
 
 void modBy0() {
-    cout << "Error: Modulo by 0.";
+    cout << "Error: Modulo by 0. Exiting program.";
     exit(1);
 }
 
@@ -69,14 +71,16 @@ void executeProgram(struct InstructionNode* program) {
                 pc = pc->next;
                 break;
             case IN: //Input a number from the keyboard
-                cout << "\n!@#INPUT#@!\n"; //so that the user can input on a blank line
+                if(showInputFlag) cout << "\n!@#INPUT#@!"; //so that the user can input on a blank line
+                cout << endl;
                 cin >> userInput;
 
                 //Ensure that the user typed in a number rather than a word
                 while(!isNumber(userInput)) {
                     //Get user input again
                     inputNotInteger();
-                    cout << "!@#INPUT#@!\n";
+                    if(showInputFlag) cout << "!@#INPUT#@!";
+                    cout << endl;
                     cin >> userInput;
                 }
 
@@ -205,8 +209,42 @@ void executeProgram(struct InstructionNode* program) {
     }
 }
 
+void showUsage() {
+    cout << "Usage: ./compiler.exe <inputFile> [-showInputFlag] [-debug]\n";
+    exit(2);
+}
+
 //Start the program. Parse and compile
 int main(int argc, char* argv[]) {
+    //Check number of arguments
+    if(argc == 1) {
+        showUsage();
+    }
+
+    string showInputFlagStr = "-showInputFlag";
+    string debugStr = "-debug";
+    if(argc == 3) {
+        string arg2(argv[2]);
+        if(arg2.compare(showInputFlagStr) == 0) {
+            showInputFlag = true;
+        } else if(arg2.compare(debugStr) == 0) {
+            DEBUG = 1;
+        } else {
+            showUsage();
+        }
+    }
+
+    if(argc == 4) {
+        string arg2(argv[2]);
+        string arg3(argv[3]);
+        if(arg2.compare(showInputFlagStr) == 0 && arg3.compare(debugStr) == 0) {
+            showInputFlag = true;
+            DEBUG = 1;
+        } else {
+            showUsage();
+        }
+    }
+    
     //Get the name of the input file from the command line
     fileName = argv[1];
     

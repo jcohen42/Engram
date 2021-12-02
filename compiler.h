@@ -11,6 +11,7 @@ using namespace std;
 extern int mem[1024];
 extern int nextAvailable;
 extern string fileName;
+extern int DEBUG;
 
 typedef enum {
     OPERATOR_NONE = 100,
