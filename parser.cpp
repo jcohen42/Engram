@@ -138,7 +138,6 @@ struct InstructionNode* Parser::parse_start() {
 
 void Parser::parse_function_section() {
     struct function* fun = parse_function();
-    functionList.push_back(fun);
 
     //Check if there is another function definition
     //If so, call this function recursively
@@ -165,6 +164,7 @@ struct Parser::function* Parser::parse_function() {
     struct InstructionNode* param = new InstructionNode;
     param->type = PARAM;
     fun->head = param;
+    functionList.push_back(fun);
 
     //Get the function argument and assign it to memory
     Token argument = expect(ID);
@@ -592,9 +592,10 @@ struct InstructionNode* Parser::parse_function_statement_simple() {
 
     expect(CALL);
     Token funcName = expect(ID);
+
     //See if the function actually exists
     bool hasFuncBeenFound = false;
-    struct function* func;
+    struct function* func = NULL;
     for(function* f : functionList) {
         if((f->name).compare(funcName.lexeme) == 0) {
             func = f;
@@ -609,7 +610,6 @@ struct InstructionNode* Parser::parse_function_statement_simple() {
     expect(WITH);
     expect(ARGUMENT);
     Token argument = expect(ID);
-    // func->head->param_inst.callerIndex = location(argument.lexeme); // this makes function re-calls broken
     stmt->func_inst.callerIndex = location(argument.lexeme);
     expect(PERIOD);
 
@@ -621,7 +621,7 @@ struct InstructionNode* Parser::parse_function_statement_simple() {
     struct InstructionNode* stmt2 = new InstructionNode;
     stmt2->type = NOOP;
     stmt2->next = NULL;
-    // stmt->func_inst.returnNode = stmt2;
+
     stmt->next = stmt2;
 
     return stmt;
@@ -636,7 +636,7 @@ struct InstructionNode* Parser::parse_function_statement_return() {
     Token funcName = expect(ID);
     //See if the function the actually exists
     bool hasFuncBeenFound = false;
-    struct function* func;
+    struct function* func = NULL;
     for(function* f : functionList) {
         if((f->name).compare(funcName.lexeme) == 0) {
             func = f;
@@ -646,10 +646,10 @@ struct InstructionNode* Parser::parse_function_statement_return() {
     }
     //If it doesn't, display an error
     if(!hasFuncBeenFound) { functionNotFound(funcName); }
+
     expect(WITH);
     expect(ARGUMENT);
     Token argument = expect(ID);
-    // func->head->param_inst.callerIndex = location(argument.lexeme);
     stmt->func_inst.callerIndex = location(argument.lexeme);
 
     //Set the instruction node to the beginning of the function
@@ -678,23 +678,14 @@ struct InstructionNode* Parser::parse_function_statement_return() {
     stmt2->assign_inst.leftHandSideIndex = location(returnVar.lexeme);
     stmt2->assign_inst.operand1Index = location(func->returnVariable);
     stmt2->assign_inst.op = OPERATOR_NONE;
-    // stmt->func_inst.returnNode = stmt2;
+
     stmt->next = stmt2;
 
     return stmt;
 }
 
-void Parser::consumeAllInput() {
-    Token t = lexer.get();
-    while (t.type != END_OF_FILE) {
-        t.print();
-        t = lexer.get();
-    }
-}
-
 struct InstructionNode* parseProgram() {
     Parser parser;
-    //parser.consumeAllInput();
     struct InstructionNode* program = parser.parse_start();
     return program;
 }

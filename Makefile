@@ -1,7 +1,7 @@
 OBJS	= inputBuffer.o lexer.o parser.o compiler.o
 SOURCE	= inputBuffer.cpp lexer.cpp parser.cpp compiler.cpp
 HEADER	= inputBuffer.h lexer.h parser.h compiler.h
-OUT	= a.out
+OUT	= engram.exe
 CC	 = g++
 FLAGS	 = -g -c -Wall
 LFLAGS	 = 

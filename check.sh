@@ -5,13 +5,13 @@ if [ ! -d "./tests" ]; then
     exit 1
 fi
 
-if [ ! -e "./a.out" ]; then
-    echo "Error: a.out not found!"
+if [ ! -e "./engram.exe" ]; then
+    echo "Error: engram.exe not found!"
     exit 1
 fi
 
-if [ ! -x "./a.out" ]; then
-    echo "Error: a.out not executable!"
+if [ ! -x "./engram.exe" ]; then
+    echo "Error: engram.exe not executable!"
     exit 1
 fi
 
@@ -26,7 +26,7 @@ for test_file in $(find ./tests -type f -name "*.txt" | sort); do
     expected_file=${test_file}.expected
     output_file=./output/${name}.output
     diff_file=./output/${name}.diff
-    ./a.out ${test_file} > ${output_file}
+    ./engram.exe ${test_file} > ${output_file}
 
 
     folder_name="$(cut -d'/' -f3 <<<"${test_file}")"

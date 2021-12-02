@@ -13,4 +13,11 @@ Begin program:
 	Input var.
 	Output "You entered:".
 	Output var.
+	Call timesTwo with argument var, set return to var2.
+	Call timesThree with argument var, set return to var3.
+	Output var2.
+	Output var3.
+	Output "Please enter a number 2 :)".
+	Input var.
+	Output var.
 End program.

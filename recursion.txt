@@ -1,0 +1,13 @@
+Begin recursion with argument x:
+	If x is greater than 0:
+		Output x.
+		Set x equal to x minus 1.
+		Call recursion with argument x.
+	End if.
+End recursion.
+
+Begin program:
+	Output "Please enter a number!!".
+	Input var.
+	Call recursion with argument var.
+End program.
