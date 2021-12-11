@@ -1,0 +1,24 @@
+Begin timesTwo with argument x:
+	Set y equal to x times 2.
+	Return y.
+End timesTwo.
+
+Begin timesThree with argument x:
+	Set y equal to x times 3.
+	Return y.
+End timesThree.
+
+Begin program:
+	Output "Please enter a number :)".
+	Input var.
+	Output "You entered:".
+	Output var.
+	Call timesTwo with argument var, set return to var2.
+	Call timesThree with argument var, set return to var3.
+	Output var2.
+	Output var3.
+	Output "Please enter a number 2 :)".
+	Input var.
+	Output var.
+End program.
+

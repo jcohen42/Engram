@@ -1,0 +1,28 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "jacobslusser.ScintillaNET/3.6.3": {
+        "runtime": {
+          "lib/net40/ScintillaNET.dll": {
+            "assemblyVersion": "3.6.3.0",
+            "fileVersion": "3.6.3.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "jacobslusser.ScintillaNET/3.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lERpP3K4x1ge5sW5eG+Yhv9sEFF4MDiHd/nuXTu/xSgPGODQo7K8hCEivqulrFypzFPZ+TsLDZoqucmi5blbdg==",
+      "path": "jacobslusser.scintillanet/3.6.3",
+      "hashPath": "jacobslusser.scintillanet.3.6.3.nupkg.sha512"
+    }
+  }
+}

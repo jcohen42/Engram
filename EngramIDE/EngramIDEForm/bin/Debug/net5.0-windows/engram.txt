@@ -1,0 +1,14 @@
+Begin recursion with argument x:
+	If x is greater than 0:
+		Output x.
+		Set x equal to x plus 1.
+		Call recursion with argument x.
+	End if.
+End recursion.
+
+Begin program:
+	Output "A demo of infinite loop handling:".
+	Set var equal to 1.
+	Call recursion with argument var.
+End program.
+

@@ -1,0 +1,12 @@
+Begin program:
+	Set a equal to 1.
+	Set b equal to 1.
+	Set i equal to 3.
+	While i is less than 20:
+		Set c equal to a plus b.
+		Output c.
+		Set a equal to b.
+		Set b equal to c.
+		Set i equal to i plus 1.
+	End while.
+End program.
