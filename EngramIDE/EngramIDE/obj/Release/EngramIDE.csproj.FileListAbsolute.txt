@@ -1,0 +1,12 @@
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\bin\Release\EngramIDE.exe.config
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\bin\Release\EngramIDE.exe
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\bin\Release\EngramIDE.pdb
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\bin\Release\ScintillaNET.dll
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\bin\Release\ScintillaNET.xml
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\obj\Release\EngramIDE.Form1.resources
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\obj\Release\EngramIDE.Properties.Resources.resources
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\obj\Release\EngramIDE.csproj.GenerateResource.cache
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\obj\Release\EngramIDE.csproj.CoreCompileInputs.cache
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\obj\Release\EngramIDE.csproj.CopyComplete
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\obj\Release\EngramIDE.exe
+C:\Users\Jake\source\repos\Engram\EngramIDE\EngramIDE\obj\Release\EngramIDE.pdb
