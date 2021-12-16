@@ -72,7 +72,7 @@ void executeProgram(struct InstructionNode* program) {
                 break;
             case IN: //Input a number from the keyboard
                 if(showInputFlag) cout << "\n!@#INPUT#@!"; //so that the user can input on a blank line
-                cout << endl;
+                if(previousOutput) cout << endl;
                 cin >> userInput;
 
                 //Ensure that the user typed in a number rather than a word
