@@ -71,16 +71,19 @@ void executeProgram(struct InstructionNode* program) {
                 pc = pc->next;
                 break;
             case IN: //Input a number from the keyboard
-                if(showInputFlag) cout << "\n!@#INPUT#@!"; //so that the user can input on a blank line
-                if(previousOutput) cout << endl;
+                if(previousOutput && showInputFlag) cout << endl;
+                if(showInputFlag) cout << "!@#INPUT#@!"; //so that the user can input on a blank line
+                if((!previousOutput && showInputFlag) || previousOutput) cout << endl;
                 cin >> userInput;
 
                 //Ensure that the user typed in a number rather than a word
                 while(!isNumber(userInput)) {
                     //Get user input again
                     inputNotInteger();
+                    previousOutput = false;
+                    if(previousOutput && showInputFlag) cout << endl;
                     if(showInputFlag) cout << "!@#INPUT#@!";
-                    cout << endl;
+                    if((!previousOutput && showInputFlag) || previousOutput)cout << endl;
                     cin >> userInput;
                 }
 
