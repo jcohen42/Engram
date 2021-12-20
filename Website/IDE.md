@@ -7,7 +7,7 @@ description: Learn how to write and run code!
 The Engram Editor is a Windows-only application where you can write and run code written for Engram. You can save Engram programs to your computer and load them later.
 
 # What's What in the Engram Editor
-![Editor](images/IDE-numbered.jpg)
+![Editor](images/IDE-numbered.png)
 1. **Load from Computer:** After pushing this button, you can select a `.txt` file from your computer. The chosen text file will be put into the **Code Editor** (see item #6).
 2. **Save to Computer:** When you sleect this button, you can save the text file in the **Code Editor** to your computer. The default file name is `engram.txt`, but you can change it before saving the file. You do *not* need to save to your computer before running the program you wrote in the **Code Editor**.
 3. **Run:** Starts running the program written in the **Code Editor**. All output will be displayed in the **Output Viwer** (see item #7), and when necessary, you can send input to the running program by using the **Input Field** (see item #8). Keep in mind that while the program is running, the **Run** button is disabled, meaning you cannot run a program if one is already runing.
