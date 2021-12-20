@@ -1,2 +1,9 @@
 theme: jekyll-theme-cayman
 title: Engram
+include:
+  - README.md
+  - Website/IDE.md
+  - Website/ASSIGNMENT.md
+  - Website/IFELSE.md
+  - Website/WHILE.md
+  - Website/FUNCTIONS.md
