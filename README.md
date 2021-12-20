@@ -1,3 +1,7 @@
+---
+title: Engram
+description: A programming language whose syntax is purely English. Intended for computer science education.
+---
 # What is Engram?
 A programming language whose syntax is purely English, intended for computer science education. This project has three parts: a parser & compiler, an Integrated Developer Invironment for the compiler, and lesson plans. The lexer, parser, and compiler were created using the C++ programming language. The IDE was created using C# and the .NET Framework.
 
