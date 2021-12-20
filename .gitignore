@@ -8,3 +8,4 @@ tests/fibonacci.txt
 engram.exe
 EngramIDE/.vs/
 *.suo
+*.psd
