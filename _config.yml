@@ -1,8 +1,8 @@
 theme: jekyll-theme-cayman
 title: Engram
 include:
-  - 1-info.md
-  - 2-download.md
+  - docs/1-info.md
+  - /docs/2-download.md
   - 3-editor.md
   - 4-helloworld.md
   - 5-variables.md
