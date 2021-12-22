@@ -1,30 +1,3 @@
-Begin function with argument x:
-      Set y equal to x plus 2.
-      Set z equal to y minus 50.
-      Set q equal to 4 modulo 2.
-      Set w equal to 8 divided by 3.
-      Set e equal to 349 times 8.
-      Return z.
-End function.
-
 Begin program:
-      Output "Input a number:".
-      Input var.
-      Call function with argument var, set return to var.
-      If var is less than 0:
-            Output "Negative.".
-      Else:
-            Output "Positive.".
-      End if.
-      Set pog equal to 10.
-      If pog is not equal to 8:
-            Output "NOT POGGERS".
-      End if.
-      While pog is greater than 0:
-            Output pog.
-            If pog is equal to 2:
-                  Output "POG".
-            End if.
-            Set pog equal to pog minus 1.
-      End while.
+      (comment)
 End program.
