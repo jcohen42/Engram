@@ -1,6 +1,7 @@
 ---
 title: Variables and Mathematic Operations
 description: Learn how to assign and manipulate variables
+filename: 5-variables.md
 ---
 
 # Assigning Variables

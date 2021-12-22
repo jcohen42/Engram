@@ -1,6 +1,7 @@
 ---
 title: While Loops
 description: Adding repitition to your program
+filename: 7-while.md
 ---
 
 # Conditions

@@ -1,12 +1,2 @@
 theme: jekyll-theme-cayman
 title: Engram
-include:
-  - docs/1-info.md
-  - /docs/2-download.md
-  - 3-editor.md
-  - 4-helloworld.md
-  - 5-variables.md
-  - 6-ifelse.md
-  - 7-while.md
-  - 8-function.md
-  - 9-errors.md

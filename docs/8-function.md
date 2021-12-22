@@ -1,6 +1,7 @@
 ---
 title: Functions
 description: Making your life easier
+filename: 8-function.md
 ---
 
 # Function Argument
