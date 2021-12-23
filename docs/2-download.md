@@ -20,8 +20,8 @@ Follow the steps below to install and launch the Engram Editor applicaiton on yo
  iv. Release
 6. Launch the Engram Editor by double-clicking `EngramIDE.exe`.
 
-# Next Section
+## Next Section
 [The Engram Editor](3-editor.md)
 
-# Previous Section
+## Previous Section
 [Information](1-info.md)
