@@ -19,8 +19,8 @@ The Engram Editor is a Windows-only application where you can write and run code
 8. **Input Field:** You can type a number into the **Input Field** to send it to your running program. Only numbers are accepted in this field. Once you have typed the number, you can press Enter on your keyboard or press the **Enter** button (see item #9).
 9. **Enter:** Sends the number written in the **Input Field** to the running program.
 
-# Next Section
+## Next Section
 [Writing Your First Program](4-helloworld.md)
 
-# Previous Section
+## Previous Section
 [Downloading Engram](2-download.md)
