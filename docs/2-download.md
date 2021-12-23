@@ -24,4 +24,4 @@ Follow the steps below to install and launch the Engram Editor applicaiton on yo
 [The Engram Editor](3-editor.md)
 
 # Previous Section
-[Information](../1-info.md)
+[Information](1-info.md)
