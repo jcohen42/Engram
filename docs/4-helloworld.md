@@ -18,6 +18,7 @@ It is important that all of our code is written in between the `Begin program:` 
 - `Begin progrem:`
 - `Begin Program:`
 - `Beginprogram:`
+
 If you're itching to learn more about syntax errors, or errors in general, then check out the section on [Errors](9-errors.md).
 
 Also, notice how the sentences sandwiched between our `Begin program:` and `End program.` fragments are shifted over to the right by a few spaces. This is not necessary, but makes reading the code a bit easier. The Tab key on your keyboard makes spacing out code a lot easier!
