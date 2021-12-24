@@ -1,9 +1,0 @@
-Set out equal to var plus var.
-	Output out.
-End Func.
-
-Begin program:
-	Set var1 equal to 10.
-	Set var2 equal to var1.
-	Call Func with argument var2.
-End program.

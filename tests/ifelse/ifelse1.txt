@@ -1,8 +1,0 @@
-Begin program:
-	Set var1 equal to -8.
-	If var1 is greater than 0:
-		Output "Positive".
-	Else:
-		Output "Negative".
-	End if.
-End program.

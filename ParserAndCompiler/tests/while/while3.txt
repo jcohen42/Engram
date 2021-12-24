@@ -1,0 +1,8 @@
+Begin program:
+	Set x equal to 6.
+	While x is equal to 6:
+		Set x equal to 7.
+		Output "In while".
+	End while.
+	Output "Out of while".
+End program.

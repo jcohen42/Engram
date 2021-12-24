@@ -1,0 +1,8 @@
+Begin program:
+	Set x equal to 12.
+	Set y equal to 3.
+	Set x1 equal to x modulo y.
+	Output x1.
+	Set y1 equal to y modulo x.
+	Output y1.
+End program.

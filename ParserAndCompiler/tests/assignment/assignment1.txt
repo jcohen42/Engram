@@ -1,0 +1,4 @@
+Begin program:
+	Set x equal to 12.
+	Output x.
+End program.

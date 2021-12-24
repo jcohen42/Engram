@@ -1,9 +1,0 @@
-Begin World with argument variable:
-	Output "Hello, ".
-	Output variable.
-End World.
-
-Begin program:
-	Set x equal to 10.
-	Call World with argument x.
-End program.

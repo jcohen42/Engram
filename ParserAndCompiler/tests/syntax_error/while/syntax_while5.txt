@@ -1,0 +1,12 @@
+Begin program:
+	Set x equal to 1.
+	Set y equal to 1.
+	Set i equal to 3.
+	While i is less than "string":
+		Set c equal to a+b.
+		Output c.
+		Set a equal to b.
+		St b equal to c.
+		Set i equal to i plus 1.
+	End while.
+End program.

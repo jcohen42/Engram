@@ -1,0 +1,16 @@
+Begin Func1 with argument var1:
+	Set out1 equal to var1 times var1.
+	Set out2 equal to out1 times var1.
+	Output out2.
+End Func1.
+
+Begin program:
+	Set one equal to 1.
+	Set two equal to 2.
+	Set three equal to 3.
+	Set four equal to 4.
+	Call Func1 with argument one.
+	Call Func1 with argument two.
+	Call Func1 with argument three.
+	Call Func1 with argument four.
+End program.

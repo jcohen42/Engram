@@ -1,1 +1,0 @@
-Begin program:Set one equal to 1.Set four equal to 4.Set five equal to one plus four Output five.End program.

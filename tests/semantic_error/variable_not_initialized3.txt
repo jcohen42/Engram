@@ -1,5 +1,0 @@
-Begin program:
-	Output "What's up".
-	Set z equal to 6.
-	Set x equal to z plus varnish.
-End program.

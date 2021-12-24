@@ -1,6 +1,0 @@
-Begin program:
-	Set x equal to 76.
-	If x is equal to 76:
-	End if.
-	Output "End of if statement".
-End program.

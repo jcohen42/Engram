@@ -1,0 +1,4 @@
+Begin program:
+	Output "What's up".
+	Set x equal to y.
+End program.

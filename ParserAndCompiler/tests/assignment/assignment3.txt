@@ -1,0 +1,4 @@
+Begin program:
+	Set epicVar equal to 4 times 10.
+	Output epicVar.
+End program.

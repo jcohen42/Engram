@@ -1,0 +1,6 @@
+Begin program:
+	Set x equal to 101010.
+	If x is equal to 101010:
+		Output "Equal".
+	End if.
+End program.

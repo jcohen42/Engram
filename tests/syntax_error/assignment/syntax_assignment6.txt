@@ -1,6 +1,0 @@
-Begin program:
-	is greater than
-	Set y equal to 3.
-	Output x modulo y.
-	Output y modulo x.
-End program.

@@ -1,6 +1,0 @@
-Begin program:
-	Set x equal to 200.
-	While x is less than 10:
-		Output "Shouldn't have gotten here".
-	Output "Done".
-End program.

@@ -1,0 +1,8 @@
+Begin program:
+	Set x equal to 76.
+	If x is equal to 76:
+		Output "Equal".
+		If x is less than 100:
+			Output "Less than".
+	End if.
+End program.

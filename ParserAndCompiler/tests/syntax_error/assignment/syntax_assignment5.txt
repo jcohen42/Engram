@@ -1,0 +1,7 @@
+Begin program:
+	Set x equal to 458.
+	Output x.
+	Set x equal to x minus 3.
+	Set y equal to 3.
+	Output x divided by y.
+End program.

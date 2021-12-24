@@ -1,4 +1,0 @@
-Begin program:
-	Set x equal to 10.
-	Call World with argument x.
-End program.

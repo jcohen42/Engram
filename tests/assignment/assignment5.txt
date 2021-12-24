@@ -1,8 +1,0 @@
-Begin program:
-	Set x equal to 12.
-	Output x.
-	Set x equal to x minus 3.
-	Set y equal to 3.
-	Set z equal to x divided by y.
-	Output z.
-End program.

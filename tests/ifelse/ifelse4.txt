@@ -1,8 +1,0 @@
-Begin program:
-	Set x equal to 76.
-	Set num equal to 72 plus 4.
-	If x is equal to num:
-		Output "Equal".
-	End if.
-	Output "End of if statement".
-End program.

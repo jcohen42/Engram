@@ -1,8 +1,0 @@
-Begin World with argument name:
-	Output "Hello!".
-End World.
-
-Begin program:
-	Set x equal to 8.
-	Call World with argument x.
-End program.

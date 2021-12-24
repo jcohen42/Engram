@@ -1,6 +1,0 @@
-Begin program:
-	Set x equal to 8.
-	Set y equal to 0.
-	Set z equal to x divided by y.
-	Output z.
-End program.

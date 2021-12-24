@@ -1,7 +1,0 @@
-Begin World with argument y:
-	Set z equal to y times 8.
-	Output z.
-Begin program:
-	Set x equal to 8.
-	Call World with argument x.
-End program.

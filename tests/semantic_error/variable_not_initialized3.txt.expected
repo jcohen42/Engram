@@ -1,2 +1,0 @@
-Error: Variable varnish was not initialized before it was used on line 4.
-Please ensure that this variable is declared beforehand.

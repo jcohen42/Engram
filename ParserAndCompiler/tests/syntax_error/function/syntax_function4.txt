@@ -1,0 +1,10 @@
+Begin Func with argument var:
+	Set out equal to var plus var.
+	return out.
+End Func.
+
+Begin program:
+	Set var1 equal to 5.
+	Call Func with argument var1; set return to foo.
+	Output foo.
+End program.

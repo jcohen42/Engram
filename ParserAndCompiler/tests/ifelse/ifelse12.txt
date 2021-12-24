@@ -1,0 +1,14 @@
+Begin program:
+	Set x equal to 100.
+	Set y equal to 5.
+	If x is not equal to y:
+		Set z equal to x plus y.
+		If z is equal to z:
+			Output "Equal".
+			Set var1 equal to z minus 100.
+			If var1 is not equal to 12121:
+				Output "Not equal".
+			End if.
+		End if.
+	End if.
+End program.

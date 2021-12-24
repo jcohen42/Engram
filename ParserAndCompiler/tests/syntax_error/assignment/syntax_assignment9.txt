@@ -1,0 +1,11 @@
+	Set var1 equal to 48.
+	Set var2 equal to var1 times var1.
+	Output var2.
+	Set var2 equal to 0.
+	Output var1 plus var2.
+	Output var1 minus var2.
+	Output var2 minus var1.
+	Output var1 times var2.
+	Output var2 divided by var1.
+	Output var2 modulo var1.
+	Output var1 plus var1.
