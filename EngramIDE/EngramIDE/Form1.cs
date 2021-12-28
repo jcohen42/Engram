@@ -32,7 +32,8 @@ namespace EngramIDE
 
             ProcessStartInfo info = new ProcessStartInfo();
             info.FileName = "compiler.exe";
-            info.Arguments = "engram.txt -showInputFlag";
+            string path = Path.GetTempPath();
+            info.Arguments = path + "engram.txt -showInputFlag";
             info.UseShellExecute = false;
             info.RedirectStandardOutput = true;
             info.RedirectStandardInput = true;
@@ -121,6 +122,8 @@ namespace EngramIDE
             editorTextBox.Styles[Style.Cpp.StringEol].BackColor = Color.Pink;
             editorTextBox.Lexer = Lexer.Cpp;
 
+            editorTextBox.SetSelectionBackColor(true, Color.FromArgb(255, 255, 50));
+
             //Set the keywords
             //-Primary keywords and identifiers
             editorTextBox.SetKeywords(0, "Set Call While while End Begin If if Else with argument Return program");
@@ -195,10 +198,8 @@ namespace EngramIDE
             stopButton.Enabled = true;
 
             //Save the program to a file
-            FileInfo myFile = new FileInfo("engram.txt");
-            myFile.Attributes &= ~FileAttributes.Hidden;
-            File.WriteAllText("engram.txt", editorTextBox.Text);
-            myFile.Attributes |= FileAttributes.Hidden;
+            string path = Path.GetTempPath();
+            File.WriteAllText(path + "engram.txt", editorTextBox.Text);
 
             //Empty the input buffer
             inputBuffer = "";
