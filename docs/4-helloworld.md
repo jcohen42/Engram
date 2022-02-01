@@ -10,8 +10,8 @@ Before we start writing our first program, we must go over the skeleton of a pro
 When we click the **Run** button, Engram will look for the `Begin program:` sentence fragment and begin executing code from there. With the exception of functions, all of our code will go after this sentence fragment, as we can see below:
 ```
 Begin program:
-  (our code will go here)
-  (of course, we can write multiple lines)
+	(our code will go here)
+	(of course, we can write multiple lines)
 End program.
 ```
 It is important that all of our code is written in between the `Begin program:` and `End program.` sentence fragments. If we write some stray sentences before `Begin program:` or after `End program.`, then a syntax error will occur. A syntax error is a type of error where a word is either misspelled or put in the wrong place, causing Engram to stop the execution of the code. Think of syntax errors as typos. Syntax errors will also occur if we misspell or use the incorrect capitalization in our sentences. Can you spot the syntax errors in these examples?
@@ -29,7 +29,7 @@ Now that we know that we should write our code between the `program` sentence fr
 For our first program, let's display a message on the **Output Viewer**. We use a special type of sentence, called an Output sentence in order to do this. This sentence begins with the word `Output` and is followed by a message surrounded by quotation marks. This is like how books use double quotes to show that someone is talking. After the second quotation mark, a period ends the sentence. Similar to English, all sentences in Engram end with periods. Let's put all of this together and put together an Output sentence:
 ```
 Begin program:
-  Output "Hello world!".
+	Output "Hello world!".
 End program.
 ```
 As you may have guessed, this program will output a message saying `Hello world!` on the **Output Viewer**. Type this code into the **Code Editor** and click run. As long as you don't have any syntax errors, you should see `Hello world!` display on the **Output Viewer**. Congratulations, you have just coded your first program!
