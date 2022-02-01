@@ -42,10 +42,10 @@ The value typed in the **Input Field** will then be assigned to the variable. We
 Copy and paste this program into the Engram Editor to see how Input and Output sentences can work together:
 ```
 Begin program:
-    Output "Enter your age:".
-    Input age.
-    Output "Your age is:".
-    Output age.
+	Output "Enter your age:".
+	Input age.
+	Output "Your age is:".
+	Output age.
 End program.
 ```
 
@@ -85,13 +85,13 @@ Set var6 equal to 5 modulo 2.
 Using your skills to assign and manipulate variables, try writing a program that calculates the area of a trapezoid. Copy and paste this program skeleton into the Engram Editor and add functionality for calculating the area of a trapezoid. More information on the equation can be found [here](https://www.khanacademy.org/math/geometry-home/geometry-area-perimeter/geometry-area-trap-composite/v/area-of-a-trapezoid-1).
 ```
 Begin program:
-    Output "Input lower base of the trapezoid:".
-    Input a.
-    Output "Input upper base of the trapezoid:".
-    Input b.
-    Output "Input height of the trapezoid:".
-    Input h.
-    (add your code here)
+	Output "Input lower base of the trapezoid:".
+	Input a.
+	Output "Input upper base of the trapezoid:".
+	Input b.
+	Output "Input height of the trapezoid:".
+	Input h.
+	(add your code here)
 End program.
 ```
 Once you have calculated the area, be sure to use an Output sentence to see the results.
