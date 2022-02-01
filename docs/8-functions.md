@@ -141,7 +141,7 @@ Now that we moved the even/odd calculation into its own function, the code has b
 # Exercise: Finding the Square of a Number
 Try to write a program that uses a function to find the square of a number. Ask the user to input a number three times, and calculate the square of that number in a function and return it back to the program. Then output the squared number to the Editor.
 
-Hint: a number is "squared" when it is multiplied by itself (the square of 4 = 4x4 = 16).
+Hint: a number is "squared" when it is multiplied by itself (the square of 4 = 4x4 = 16)
 
 ## Next Section
 [Errors](9-errors.md)
