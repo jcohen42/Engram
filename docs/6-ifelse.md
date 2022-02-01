@@ -10,8 +10,8 @@ If statements let our program make decisions while it is running. We can tell th
 As a brief introduction, if blocks in Engram are formed as such:
 ```
 If (condition):
-  (sentences inside the if block)
-  (these will be executed only if the condition is true)
+	(sentences inside the if block)
+	(these will be executed only if the condition is true)
 End if.
 ```
 
@@ -72,12 +72,12 @@ You may find that indenting the sentences inside of the if block will make it ea
 Here is an example of a program with an if block:
 ```
 Begin program:
-  Input x.
-  If x is greater than 5:
-    Output "Your number is greater than 5.".
-    Set x equal to x times x.
-  End if.
-  Output x.
+	Input x.
+	If x is greater than 5:
+		Output "Your number is greater than 5.".
+		Set x equal to x times x.
+	End if.
+	Output x.
 End program.
 ```
 
@@ -91,18 +91,18 @@ Enter else statements. These allow us to execute a different set of sentences if
 Below is an example of an if statement with an attached else statement:
 ```
 Begin program:
-  Input "Enter your height in feet:".
-  Input feet.
-  Input "Enter your height in inches:".
-  Input inches.
-  If inches is less than 12:
-    Set feetInInches equal to feet times 12.
-    Set height equal to feetInInches plus inches.
-    Output "Your height in inches is:".
-    Output height.
-  Else:
-    Output "There are only a maximum of 12 inches in a foot!".
-  End if.
+	Input "Enter your height in feet:".
+	Input feet.
+	Input "Enter your height in inches:".
+	Input inches.
+	If inches is less than 12:
+		Set feetInInches equal to feet times 12.
+		Set height equal to feetInInches plus inches.
+		Output "Your height in inches is:".
+		Output height.
+	Else:
+		Output "There are only a maximum of 12 inches in a foot!".
+	End if.
 End program.
 ```
 
