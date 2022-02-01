@@ -10,10 +10,10 @@ While loops are used when we want to execute multiple sentences over and over. T
 While blocks in Engram are formed like this:
 ```
 While (condition):
-  (sentences inside the while block)
-  (these will be executed repeatedly until the condition becomes false)
-  (after the last sentence is executed, Engram will go back to the condition 
-    at the top of the while loop)
+	(sentences inside the while block)
+	(these will be executed repeatedly until the condition becomes false)
+	(after the last sentence is executed, Engram will go back to the condition...)
+	(at the top of the while loop)
 End while.
 ```
 
@@ -26,15 +26,15 @@ You can write any type of sentence inside of a while loop, including another whi
 Let's write a quick example of a while loop and unpack it afterwards:
 ```
 Begin program:
-  Output "Input a number:".
-  Input number.
+	Output "Input a number:".
+	Input number.
   
-  While number is greater than 0:
-    Output number.
-    Set number equal to number minus 1.
-  End while.
+	While number is greater than 0:
+		Output number.
+		Set number equal to number minus 1.
+	End while.
   
-  Output "All done!".
+	Output "All done!".
 End program.
 ```
 
