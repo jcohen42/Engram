@@ -54,7 +54,7 @@ void integerOverflow() {
 //WARNING FUNCTIONS
 void inputNotInteger() {
     cout << "Warning: Please make sure that you typed in a number, with no "
-            << "letters or punctations marks. Please enter a new number:\n";
+            << "letters or punctation marks. Please enter a new number:\n";
 }
 
 void executeProgram(struct InstructionNode* program) {

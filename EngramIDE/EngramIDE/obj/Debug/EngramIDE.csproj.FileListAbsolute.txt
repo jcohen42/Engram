@@ -16,7 +16,6 @@ C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\bin\Debug\EngramIDE.exe
 C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\bin\Debug\EngramIDE.pdb
 C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\bin\Debug\ScintillaNET.dll
 C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\bin\Debug\ScintillaNET.xml
-C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\obj\Debug\EngramIDE.csprojAssemblyReference.cache
 C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\obj\Debug\EngramIDE.Form1.resources
 C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\obj\Debug\EngramIDE.Properties.Resources.resources
 C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\obj\Debug\EngramIDE.csproj.GenerateResource.cache
@@ -24,3 +23,4 @@ C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\obj\Debug\EngramIDE.cspr
 C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\obj\Debug\EngramIDE.csproj.CopyComplete
 C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\obj\Debug\EngramIDE.exe
 C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\obj\Debug\EngramIDE.pdb
+C:\Users\Jake\Desktop\Thesis\Engram\EngramIDE\EngramIDE\obj\Debug\EngramIDE.csproj.AssemblyReference.cache

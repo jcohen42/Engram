@@ -42,6 +42,7 @@
             this.panelOutputBG = new System.Windows.Forms.Panel();
             this.editorTextBox = new ScintillaNET.Scintilla();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.minimizeButton = new System.Windows.Forms.Button();
             this.panelOutputBG.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             this.loadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loadButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadButton.Location = new System.Drawing.Point(13, 46);
-            this.loadButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.loadButton.Margin = new System.Windows.Forms.Padding(6);
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(149, 32);
             this.loadButton.TabIndex = 1;
@@ -67,7 +68,7 @@
             this.runButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.runButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.runButton.Location = new System.Drawing.Point(493, 46);
-            this.runButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.runButton.Margin = new System.Windows.Forms.Padding(6);
             this.runButton.Name = "runButton";
             this.runButton.Size = new System.Drawing.Size(81, 32);
             this.runButton.TabIndex = 2;
@@ -82,7 +83,7 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.Location = new System.Drawing.Point(332, 46);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(6);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(149, 32);
             this.saveButton.TabIndex = 3;
@@ -97,7 +98,7 @@
             this.outputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.outputTextBox.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.outputTextBox.Location = new System.Drawing.Point(6, 0);
-            this.outputTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.outputTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
             this.outputTextBox.Size = new System.Drawing.Size(448, 435);
@@ -110,7 +111,7 @@
             this.inputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.inputTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextBox.Location = new System.Drawing.Point(493, 540);
-            this.inputTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.inputTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.inputTextBox.Name = "inputTextBox";
             this.inputTextBox.Size = new System.Drawing.Size(342, 29);
             this.inputTextBox.TabIndex = 5;
@@ -123,7 +124,7 @@
             this.enterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enterButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enterButton.Location = new System.Drawing.Point(846, 539);
-            this.enterButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.enterButton.Margin = new System.Windows.Forms.Padding(6);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(101, 32);
             this.enterButton.TabIndex = 6;
@@ -147,7 +148,7 @@
             this.stopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stopButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.stopButton.Location = new System.Drawing.Point(866, 46);
-            this.stopButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.stopButton.Margin = new System.Windows.Forms.Padding(6);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(81, 32);
             this.stopButton.TabIndex = 8;
@@ -166,7 +167,7 @@
             this.labelTitle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.labelTitle.Location = new System.Drawing.Point(0, 0);
-            this.labelTitle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.labelTitle.Margin = new System.Windows.Forms.Padding(6);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(960, 32);
             this.labelTitle.TabIndex = 10;
@@ -179,7 +180,7 @@
             this.panelOutputBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(137)))), ((int)(((byte)(184)))));
             this.panelOutputBG.Controls.Add(this.outputTextBox);
             this.panelOutputBG.Location = new System.Drawing.Point(493, 91);
-            this.panelOutputBG.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelOutputBG.Margin = new System.Windows.Forms.Padding(6);
             this.panelOutputBG.Name = "panelOutputBG";
             this.panelOutputBG.Size = new System.Drawing.Size(454, 435);
             this.panelOutputBG.TabIndex = 12;
@@ -188,7 +189,7 @@
             // 
             this.editorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.editorTextBox.Location = new System.Drawing.Point(13, 91);
-            this.editorTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.editorTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.editorTextBox.Name = "editorTextBox";
             this.editorTextBox.Size = new System.Drawing.Size(468, 480);
             this.editorTextBox.TabIndex = 13;
@@ -201,13 +202,28 @@
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.Location = new System.Drawing.Point(930, 0);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(2);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(30, 32);
             this.buttonExit.TabIndex = 14;
             this.buttonExit.Text = "X";
             this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // minimizeButton
+            // 
+            this.minimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(194)))));
+            this.minimizeButton.FlatAppearance.BorderSize = 0;
+            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizeButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimizeButton.Location = new System.Drawing.Point(898, 0);
+            this.minimizeButton.Margin = new System.Windows.Forms.Padding(2);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(30, 32);
+            this.minimizeButton.TabIndex = 15;
+            this.minimizeButton.Text = "_";
+            this.minimizeButton.UseVisualStyleBackColor = false;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
             // 
             // Form1
             // 
@@ -216,6 +232,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(960, 585);
             this.ControlBox = false;
+            this.Controls.Add(this.minimizeButton);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.editorTextBox);
             this.Controls.Add(this.labelTitle);
@@ -227,7 +244,7 @@
             this.Controls.Add(this.loadButton);
             this.Controls.Add(this.panelOutputBG);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
@@ -254,6 +271,7 @@
         private System.Windows.Forms.Panel panelOutputBG;
         private ScintillaNET.Scintilla editorTextBox;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button minimizeButton;
     }
 }
 

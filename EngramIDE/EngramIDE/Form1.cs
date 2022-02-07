@@ -242,7 +242,6 @@ namespace EngramIDE
 
             //Open the file
             string fileName = openFileDialog.FileName;
-
             try
             {
                 //Pass the lines to the editor text box
@@ -252,7 +251,7 @@ namespace EngramIDE
                 {
                     editorTextBox.Text += lines[i] + "\n";
                 }
-            } catch (FileNotFoundException err) { }
+            } catch (FileNotFoundException) { }
         }
 
         //Saves the text written in the editor to engram.txt by default
@@ -264,13 +263,21 @@ namespace EngramIDE
             saveFileDialog.FileName = "engram";
             saveFileDialog.ShowDialog();
 
-            File.WriteAllLines(saveFileDialog.FileName, editorTextBox.Text.Split('\n'));
+            try
+            {
+                File.WriteAllLines(saveFileDialog.FileName, editorTextBox.Text.Split('\n'));
+            } catch (FileNotFoundException) { }
         }
 
         //Exits the IDE application
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
