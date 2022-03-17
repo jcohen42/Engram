@@ -5,11 +5,11 @@ filename: 2-download.md
 ---
 
 # Prerequisites
-Engram (and the Engram Editor) can only run on Windows computers. The Engram Editor is a fairly resource-light application, so do not worry if you have an older or less-powerful computer.
+Engram (and the Engram Editor) can only run on Windows computers. The Engram Editor is a resource-light application, so do not worry if you have an older or less-powerful computer.
 
 # How To Download Engram
 Follow the steps below to install and launch the Engram Editor application on your Windows computer:
-1. Download the Engram Editor here: https://github.com/jcohen42/Engram/archive/refs/heads/main.zip
+1. Download the Engram Editor [here](https://github.com/jcohen42/Engram/archive/refs/heads/main.zip)
 2. Open File Explorer
 3. Find the `Engram-main.zip` file (likely in the `Downloads` folder)
 4. Right-click the `.zip` file and select "Extract all..."
