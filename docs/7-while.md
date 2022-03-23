@@ -9,7 +9,7 @@ While loops are used when we want to execute multiple sentences over and over. T
 
 While blocks in Engram are formed like this:
 ```
-While (condition):
+While condition:
 	(sentences inside the while block)
 	(these will be executed repeatedly until the condition becomes false)
 	(after the last sentence is executed, Engram will go back to the condition...)
