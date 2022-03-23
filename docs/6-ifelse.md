@@ -9,7 +9,7 @@ If statements let our program make decisions while it is running. We can tell th
 
 As a brief introduction, if blocks in Engram are formed as such:
 ```
-If (condition):
+If condition:
 	(sentences inside the if block)
 	(these will be executed only if the condition is true)
 End if.
