@@ -54,7 +54,7 @@ Here are some examples of outcomes of the `equal to` condition:
 | -2 | 2 | sentences inside the if block will *not* be executed |
 
 ## Not Equal To
-This condition is written like this: `If value1 is equal to value2:`. As you might expect, this condition will only be true when the left value and the right value are different. Otherwise, Engram will go to the first statement after the `End if.` sentence.
+This condition is written like this: `If value1 is not equal to value2:`. As you might expect, this condition will only be true when the left value and the right value are different. Otherwise, Engram will go to the first statement after the `End if.` sentence.
 
 Here are some examples of  outcomes of the `not equal to` condition:
 
