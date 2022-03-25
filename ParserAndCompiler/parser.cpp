@@ -250,8 +250,6 @@ Token Parser::parse_variable() {
 }
 
 struct InstructionNode* Parser::parse_program_section() {
-    //Check for any number of comments
-
     //Parse the program section
     expect(BEGIN);
     expect(PROGRAM);
@@ -275,7 +273,7 @@ struct InstructionNode* Parser::parse_statement_list() {
             || t.type == INPUT || t.type == OUTPUT || t.type == CALL || t.type == COMMENT) {
         stmt2 = parse_statement_list();
         
-        //Iterate through to the end of stmt1
+        //Iterate through to the end of stmt
         struct InstructionNode* tracker = stmt;
         while(tracker->next != NULL) {
             tracker = tracker->next;
@@ -328,34 +326,51 @@ struct InstructionNode* Parser::parse_if_statement() {
     stmt->cjmp_inst.operand2Index = location(block->cond->operand2);
     stmt->next = block->body;
 
-    //Set the very end of the if body as the target
-    struct InstructionNode* tracker = block->body;
-	while(tracker->next != NULL) {
-		tracker = tracker->next;
-	}
-
     //Create a noop node
 	struct InstructionNode* no_op = new InstructionNode;
 	no_op->type = NOOP;
 	no_op->next = NULL;
 
-	//Append the noop node to the body of the if
-	tracker->next = no_op;
-
     //Check to see if there is an Else declaration
     if(lexer.peek(1).type == ELSE) {
-        //If there is, we need to set the target of the jcmp instance
+        if(DEBUG) cout << "DEBUG: found else block\n";
+        //If there is, we need to set the target of the cjmp instance
         //to the beginnging of the else block
         struct InstructionNode* elseBody = parse_else_block();
 
         stmt->cjmp_inst.target = elseBody;
 
-        struct InstructionNode* tracker2 = elseBody;
-	    while(tracker2->next != NULL) {
-		    tracker2 = tracker->next;
+        struct InstructionNode* tracker = elseBody;
+	    while(tracker->next != NULL) {
+		    tracker = tracker->next;
 	    }
-        tracker2->next = no_op;
+        tracker->next = no_op;
+        
+        //We also need to set the end of the if body's next statement
+        //Set the very end of the if body as the target
+        struct InstructionNode* tracker2 = block->body;
+        while(tracker2->next != NULL) {
+            tracker2 = tracker2->next;
+        }
+        
+        //Create a jump node
+        struct InstructionNode* jump = new InstructionNode;
+        jump->type = JMP;
+        jump->next = no_op;
+        jump->jmp_inst.target = no_op;
+
+        //Append the jump node to the body of the if
+        tracker2->next = jump;
     } else {
+        //Set the very end of the if body as the target
+        struct InstructionNode* tracker = block->body;
+        while(tracker->next != NULL) {
+            tracker = tracker->next;
+        }
+ 
+        //Append the noop node to the body of the if
+        tracker->next = no_op;
+
         //If there is no else, set the target of the CJMP as no_op
         stmt->cjmp_inst.target = no_op;
     }

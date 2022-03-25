@@ -54,15 +54,13 @@ LexicalAnalyzer::LexicalAnalyzer() {
 }
 
 //Ignore spaces in the input stream
-bool LexicalAnalyzer::skipSpace() {
+void LexicalAnalyzer::skipSpace() {
     char c;
-    bool spaceFound = false;
 
     input.getChar(c);
     lineNum += (c == '\n'); //skip newlines
 
     while(!input.endOfInput() && isspace(c)) {
-        spaceFound = true;
         input.getChar(c); //consume the space character
         lineNum += (c == '\n'); //increase the line number if newline
     }
@@ -70,8 +68,6 @@ bool LexicalAnalyzer::skipSpace() {
     if(!input.endOfInput()) {
         input.ungetChar(c);
     }
-
-    return spaceFound;
 }
 
 //Iterate through each reserved word and check if it matches the input string
@@ -99,9 +95,11 @@ Token LexicalAnalyzer::scanString() {
     if(c == '\"') {
         temp.lexeme = "\"";
         input.getChar(c);
+        lineNum += (c == '\n'); //skip newlines
         while(!input.endOfInput() && c != '\"') {
             temp.lexeme += c;
             input.getChar(c);
+            lineNum += (c == '\n'); //skip newlines
         }
         //Get the final double quote
         if(c == '\"') {
@@ -140,9 +138,11 @@ Token LexicalAnalyzer::scanComment() {
     if(c == '(') {
         temp.lexeme = "(";
         input.getChar(c);
+        lineNum += (c == '\n'); //skip newlines
         while(!input.endOfInput() && c != ')') {
             temp.lexeme += c;
             input.getChar(c);
+            lineNum += (c == '\n'); //skip newlines
         }
         //Get the final double quote
         if(c == ')') {
@@ -228,6 +228,7 @@ Token LexicalAnalyzer::scanKeyword() {
         while(!input.endOfInput() && isalnum(c)) {
             temp.lexeme += c;
             input.getChar(c);
+            //lineNum += (c == '\n'); //skip newlines
         }
         if(!input.endOfInput()) {
             input.ungetChar(c);

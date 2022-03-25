@@ -42,7 +42,7 @@ class LexicalAnalyzer {
         int index;
         Token temp;
         InputBuffer input;
-        bool skipSpace();
+        void skipSpace();
         int findKeywordIndex(string);
         Token scanKeyword();
         Token scanNum();
