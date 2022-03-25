@@ -43,6 +43,7 @@
             this.editorTextBox = new ScintillaNET.Scintilla();
             this.buttonExit = new System.Windows.Forms.Button();
             this.minimizeButton = new System.Windows.Forms.Button();
+            this.buttonManual = new System.Windows.Forms.Button();
             this.panelOutputBG.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             this.saveButton.FlatAppearance.BorderSize = 0;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(332, 46);
+            this.saveButton.Location = new System.Drawing.Point(174, 46);
             this.saveButton.Margin = new System.Windows.Forms.Padding(6);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(149, 32);
@@ -188,12 +189,14 @@
             // editorTextBox
             // 
             this.editorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.editorTextBox.HScrollBar = false;
             this.editorTextBox.Location = new System.Drawing.Point(13, 91);
             this.editorTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.editorTextBox.Name = "editorTextBox";
             this.editorTextBox.Size = new System.Drawing.Size(468, 480);
             this.editorTextBox.TabIndex = 13;
             this.editorTextBox.TabWidth = 6;
+            this.editorTextBox.UseTabs = true;
             // 
             // buttonExit
             // 
@@ -225,6 +228,21 @@
             this.minimizeButton.UseVisualStyleBackColor = false;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
             // 
+            // buttonManual
+            // 
+            this.buttonManual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(195)))), ((int)(((byte)(230)))));
+            this.buttonManual.FlatAppearance.BorderSize = 0;
+            this.buttonManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonManual.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonManual.Location = new System.Drawing.Point(365, 46);
+            this.buttonManual.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonManual.Name = "buttonManual";
+            this.buttonManual.Size = new System.Drawing.Size(116, 32);
+            this.buttonManual.TabIndex = 16;
+            this.buttonManual.Text = "Open Manual";
+            this.buttonManual.UseVisualStyleBackColor = false;
+            this.buttonManual.Click += new System.EventHandler(this.buttonManual_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +250,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(960, 585);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonManual);
             this.Controls.Add(this.minimizeButton);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.editorTextBox);
@@ -272,6 +291,7 @@
         private ScintillaNET.Scintilla editorTextBox;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button minimizeButton;
+        private System.Windows.Forms.Button buttonManual;
     }
 }
 

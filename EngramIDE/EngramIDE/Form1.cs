@@ -19,10 +19,12 @@ namespace EngramIDE
     {
         Process compiler;
         StreamWriter myStreamWriter;
-        string inputBuffer = "";
+        string inputBuffer = null;
+        bool focused = false;
 
         int OUTPUT = 0;
         int INPUT = 1;
+        int AWAITING = 2;
         int MAXIO = 2048;
 
         //Start the Engram compiler as a Process. Display output and gather output
@@ -59,10 +61,15 @@ namespace EngramIDE
                     return;
                 }
 
+                System.Threading.Thread.Sleep(5); //sleep to avoid null input buffer
                 string output = compiler.StandardOutput.ReadLine();
                 if (output == "!@#INPUT#@!")
                 {
-                    while (inputBuffer == "") { if (worker.CancellationPending) return; }
+                    while (inputBuffer == null) {
+                        if (worker.CancellationPending) return;
+                        worker.ReportProgress(AWAITING);
+                        System.Threading.Thread.Sleep(50); //sleep to avoid crash
+                    }
                     worker.ReportProgress(INPUT);
                 }
                 else
@@ -86,10 +93,20 @@ namespace EngramIDE
             {
                 outputTextBox.Text += (e.UserState as String) + "\n";
             }
+            else if(e.ProgressPercentage == AWAITING)
+            {
+                if(!focused)
+                {
+                    this.ActiveControl = inputTextBox;
+                    focused = true;
+                }
+            }
             else
             {
                 myStreamWriter.WriteLine(inputBuffer);
-                inputBuffer = "";
+                outputTextBox.Text += "> " + inputBuffer + "\n";
+                inputBuffer = null;
+                focused = false;
             }
         }
 
@@ -164,6 +181,7 @@ namespace EngramIDE
             saveButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, saveButton.Width, saveButton.Height, 10, 10));
             loadButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, loadButton.Width, loadButton.Height, 10, 10));
             enterButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, enterButton.Width, enterButton.Height, 10, 10));
+            buttonManual.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonManual.Width, buttonManual.Height, 10, 10));
 
             //Add hint text to the input text box
             SendMessage(inputTextBox.Handle, 0x1501, 1, "Type a number...");
@@ -202,7 +220,7 @@ namespace EngramIDE
             File.WriteAllText(path + "engram.txt", editorTextBox.Text);
 
             //Empty the input buffer
-            inputBuffer = "";
+            inputBuffer = null;
 
             //Use the background worker to run the program
             backgroundWorker1.RunWorkerAsync();
@@ -224,7 +242,7 @@ namespace EngramIDE
         private void enterButton_Click(object sender, EventArgs e)
         {
             inputBuffer = inputTextBox.Text;
-            inputTextBox.Text = "";
+            inputTextBox.Text = null;
         }
 
         //Stop the running program
@@ -261,12 +279,15 @@ namespace EngramIDE
             saveFileDialog.Filter = "Text|*.txt";
             saveFileDialog.Title = "Save your program";
             saveFileDialog.FileName = "engram";
-            saveFileDialog.ShowDialog();
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             try
             {
-                File.WriteAllLines(saveFileDialog.FileName, editorTextBox.Text.Split('\n'));
+                saveFileDialog.ShowDialog();
+                File.WriteAllText(saveFileDialog.FileName, editorTextBox.Text);
             } catch (FileNotFoundException) { }
+            catch(Exception) { }
         }
 
         //Exits the IDE application
@@ -278,6 +299,12 @@ namespace EngramIDE
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonManual_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://jcohen42.github.io/Engram/docs/1-info.html");
+            Process.Start(sInfo);
         }
     }
 }
