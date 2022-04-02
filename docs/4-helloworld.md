@@ -26,7 +26,7 @@ Also, notice how the sentences sandwiched between our `Begin program:` and `End 
 Now that we know that we should write our code between the `program` sentence fragments, let's learn what we can put there!
 
 # Displaying Output
-For our first program, let's display a message on the **Output Viewer**. We use a special type of sentence, called an Output sentence in order to do this. This sentence begins with the word `Output` and is followed by a message surrounded by quotation marks. This is like how books use double quotes to show that someone is talking. After the second quotation mark, a period ends the sentence. Similar to English, all sentences in Engram end with periods. Let's put all of this together and put together an Output sentence:
+For our first program, let's display a message on the **Output Viewer**. We use a special type of sentence called an Output sentence in order to do this. This sentence begins with the word `Output` and is followed by a message surrounded by quotation marks. This is like how books use double quotes to show that someone is talking. After the second quotation mark, a period ends the sentence. Similar to English, all sentences in Engram end with periods. Let's put all of this together and put together an Output sentence:
 ```
 Begin program:
 	Output "Hello world!".
@@ -34,7 +34,7 @@ End program.
 ```
 As you may have guessed, this program will output a message saying `Hello world!` on the **Output Viewer**. Type this code into the **Code Editor** and click run. As long as you don't have any syntax errors, you should see `Hello world!` display on the **Output Viewer**. Congratulations, you have just coded your first program!
 
-In addition to words, we can also display numbers and variables using the Output sentence. Displaying output frequently is very important, as it helps whoever is running the code understand what is happening in the code. In the next section, we will learn how to create variables and change them using math. The Output sentence will be a great tool for us to use to see the results of using math.
+In addition to words, we can also display numbers and variables using the Output sentence. Displaying output frequently is very important, as it helps whoever is running the code understand what is happening in the program. In the next section, we will learn how to create variables and change them using math. The Output sentence will be a great tool for us to use to see the results of using math.
 
 # Exercise: Changing the Output
 Now that we know how to write Output sentences, try changing the words between the quotation marks to say something else, like your name or your favorite video game. Once you do that, see if you can add some more Output sentences on different lines, and have them all say different things.
