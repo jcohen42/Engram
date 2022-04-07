@@ -135,11 +135,17 @@ Token LexicalAnalyzer::scanComment() {
     char c;
     input.getChar(c);
 
+    int extraLParensEncountered = 0; //account for embedded parentheses
+
     if(c == '(') {
         temp.lexeme = "(";
         input.getChar(c);
         lineNum += (c == '\n'); //skip newlines
-        while(!input.endOfInput() && c != ')') {
+        while(!input.endOfInput() && (c != ')' || extraLParensEncountered > 0)) {
+            if(c == '(')
+                extraLParensEncountered++;
+            else if(c == ')')
+                extraLParensEncountered--;
             temp.lexeme += c;
             input.getChar(c);
             lineNum += (c == '\n'); //skip newlines
